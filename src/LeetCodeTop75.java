@@ -1,4 +1,12 @@
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 public class LeetCodeTop75 {
+    public static void main(String[] args) {
+        LeetCodeTop75 leetCodeTop75 = new LeetCodeTop75();
+        System.out.println(leetCodeTop75.canConstruct("fihjjjjei", "hjibagacbhadfaefdjaeaebgi"));
+    }
 
     /*A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
 Given a string s, return true if it is a palindrome, or false otherwise.
@@ -25,6 +33,7 @@ Explanation: "amanaplanacanalpanama" is a palindrome.*/
         }
         return true;
     }
+
     /*
     Given two strings s and t, return true if s is a subsequence of t, or false otherwise.
     A subsequence of a string is a new string that is formed from the original string
@@ -34,13 +43,41 @@ Explanation: "amanaplanacanalpanama" is a palindrome.*/
     public boolean isSubsequence(String s, String t) {
         int sPointer = 0;
         int tPointer = 0;
-    while (sPointer < s.length() && tPointer < t.length()) {
-        if (s.charAt(sPointer) == t.charAt(tPointer)) {
-            sPointer++;
-        }
-        tPointer++;
+        while (sPointer < s.length() && tPointer < t.length()) {
+            if (s.charAt(sPointer) == t.charAt(tPointer)) {
+                sPointer++;
+            }
+            tPointer++;
 
+        }
+        return sPointer == s.length();
     }
-    return sPointer == s.length();
+
+    /*Given two strings ransomNote and magazine, return true if ransomNote can be constructed by using the letters from magazine and false otherwise.
+Each letter in magazine can only be used once in ransomNote.
+Example 1:
+Input: ransomNote = "a", magazine = "b"
+Output: false
+Example 2:
+
+Input: ransomNote = "aa", magazine = "ab"
+Output: false
+Example 3:
+
+Input: ransomNote = "aa", magazine = "aab"
+Output: true*/
+    public boolean canConstruct(String ransomNote, String magazine) {
+        char[] ransomChars = ransomNote.toCharArray();
+        char[] magazineChars = magazine.toCharArray();
+        Map<Character, Integer> mapMagazine = new HashMap<>();
+        for (char c : magazineChars) {
+            mapMagazine.put(c, mapMagazine.getOrDefault(c, 0) + 1);
+        }
+        for (char c : ransomChars) {
+            if ((!mapMagazine.containsKey(c)) || mapMagazine.get(c) <= 0)
+                return false;
+            mapMagazine.put(c, mapMagazine.get(c) - 1);
+        }
+        return true;
     }
 }
