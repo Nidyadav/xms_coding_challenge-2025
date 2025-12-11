@@ -82,18 +82,17 @@ public class CodingBatStringProblems {
     withoutString("Hello there", "e") → "Hllo thr"
     withoutString("Hello there", "x") → "Hello there"*/
     public static String withoutString(String base, String remove) {
-       StringBuilder result = new StringBuilder();
-       int idx=0;
-       while(idx<base.length()){
-           //do not replace substring() with startsWith() it does not despite intelliJ suggestion
-           if(idx+remove.length()<=base.length() && base.substring(idx, idx+remove.length()).equals(remove)){
-                idx = idx+remove.length();
-                base.regionMatches()
-           }else{
-               result.append(base.charAt(idx));
-               idx++;
-           }
-       }
-       return result.toString();
+        StringBuilder result = new StringBuilder();
+        int idx = 0;
+        while (idx < base.length()) {
+            //do not replace substring() with startsWith() it does not despite intelliJ suggestion
+            if (idx + remove.length() <= base.length() && base.substring(idx, idx + remove.length()).equals(remove)) {
+                idx = idx + remove.length();
+            } else {
+                result.append(base.charAt(idx));
+                idx++;
+            }
+        }
+        return result.toString();
     }
 }
