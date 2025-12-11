@@ -77,4 +77,23 @@ public class CodingBatStringProblems {
         }
         return mirrorString.toString();
     }
+    /*Given two strings, base and remove, return a version of the base string where all instances of the remove string have been removed (not case sensitive). You may assume that the remove string is length 1 or more. Remove only non-overlapping instances, so with "xxx" removing "xx" leaves "x".
+    withoutString("Hello there", "llo") → "He there"
+    withoutString("Hello there", "e") → "Hllo thr"
+    withoutString("Hello there", "x") → "Hello there"*/
+    public static String withoutString(String base, String remove) {
+       StringBuilder result = new StringBuilder();
+       int idx=0;
+       while(idx<base.length()){
+           //do not replace substring() with startsWith() it does not despite intelliJ suggestion
+           if(idx+remove.length()<=base.length() && base.substring(idx, idx+remove.length()).equals(remove)){
+                idx = idx+remove.length();
+                base.regionMatches()
+           }else{
+               result.append(base.charAt(idx));
+               idx++;
+           }
+       }
+       return result.toString();
+    }
 }
