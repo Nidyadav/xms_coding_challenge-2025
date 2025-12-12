@@ -95,4 +95,22 @@ public class CodingBatStringProblems {
         }
         return result.toString();
     }
+    /*
+    Given a string, return the longest substring that appears at both the beginning and end of the string without overlapping.
+    For example, sameEnds("abXab") is "ab".
+    sameEnds("abXYab") → "ab"
+    sameEnds("xx") → "x"
+    sameEnds("xxx") → "x"
+     */
+    public String sameEnds(String string) {
+        int n=string.length();
+        int maxLen=n/2;
+        for(int i=maxLen;i>0;i--) {
+            if(string.substring(0,i).equals(string.substring(n-i))){
+                return string.substring(0,i);
+        }
+    }
+    return "";
+    }
+
 }
