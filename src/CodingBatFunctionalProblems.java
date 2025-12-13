@@ -10,8 +10,7 @@ public class CodingBatFunctionalProblems {
      */
     public List<String> noz(List<String> strings) {
         return strings.stream()
-                .filter(s->s.contains("z"))
+                .filter(s->!s.contains("z"))
                 .collect(Collectors.toList());
     }
-
 }
