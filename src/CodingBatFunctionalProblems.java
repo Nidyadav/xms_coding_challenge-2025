@@ -40,5 +40,14 @@ Given a list of integers, return a list of those numbers, omitting any that are 
               .filter(n-> n %10!=9)
               .collect(Collectors.toList());
     }
+    /*
+    Given a list of strings, return a list of the strings, omitting any string length 4 or more.
+    noLong(["this", "not", "too", "long"]) → ["not", "too"]*/
+    public List<String> noLong(List<String> strings) {
+        return strings.stream()
+                .filter(s->s.length()<4)
+                .collect(Collectors.toList());
+    }
+
 
 }
