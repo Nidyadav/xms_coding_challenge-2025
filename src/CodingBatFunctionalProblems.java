@@ -48,6 +48,27 @@ Given a list of integers, return a list of those numbers, omitting any that are 
                 .filter(s->s.length()<4)
                 .collect(Collectors.toList());
     }
+    /*
+    Say that a "clump" in an array is a series of 2 or more adjacent elements of the same value. Return the number of clumps in the given array.
+    countClumps([1, 1, 1, 1, 1]) → 1
+    */
+    public int countClumps(int[] nums) {
+        if (nums == null || nums.length < 2) {
+            return 0;
+        }
+        int clumps = 0;
+        boolean inClump = false;
 
-
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == nums[i - 1]) {
+                if (!inClump) {
+                    clumps++;
+                    inClump = true;
+                }
+            } else {
+                inClump = false;
+            }
+        }
+        return clumps;
+    }
 }
