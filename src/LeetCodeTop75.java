@@ -6,7 +6,9 @@ public class LeetCodeTop75 {
     public static void main(String[] args) {
 //        LeetCodeTop75 leetCodeTop75 = new LeetCodeTop75();
 //        System.out.println(leetCodeTop75.canConstruct("fihjjjjei", "hjibagacbhadfaefdjaeaebgi"));
-        System.out.println(CodingBatStringProblems.withoutString("ThIS is a FISH", "IS"));
+        CodingBatArray3 codingBatArray3 = new CodingBatArray3();
+
+        codingBatArray3.maxMirror(new int[]{1, 2, 1, 4});
     }
 
     /*A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
